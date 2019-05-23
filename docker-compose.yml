@@ -2,9 +2,10 @@ version: '3.3'
 
 services:
    db:
-     image: mysql:5.7
+     image: mariadb:latest
      volumes:
        - db_data:/var/lib/mysql
+       - ./initialdb:/docker-entrypoint-initdb.d
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: somewordpress
